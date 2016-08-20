@@ -16,8 +16,22 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1ar-wB-MMR">
+                                <rect key="frame" x="20" y="40" width="560" height="540"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="1ar-wB-MMR" secondAttribute="trailing" constant="20" id="1cM-wn-2Z4"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="1ar-wB-MMR" secondAttribute="bottom" constant="20" id="5WI-G7-e7o"/>
+                            <constraint firstItem="1ar-wB-MMR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="79m-gE-h0d"/>
+                            <constraint firstItem="1ar-wB-MMR" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="qJZ-9t-lOK"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageVi" destination="1ar-wB-MMR" id="mJg-yP-TN2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
