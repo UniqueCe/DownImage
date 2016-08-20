@@ -16,7 +16,6 @@
 
 @end
 
-
 @implementation DownloadOperation
 
 + (instancetype)downloadWithURL:(NSString *)URLStr andfinishedBlock:(void (^)(UIImage *))finishBlcok
@@ -28,5 +27,21 @@
     
     return op;
 }
+#pragma mark - 重写main方法
+- (void)main
+{
+    NSLog(@"传入--%@",self.URLString);
+    //下载图片
+    NSURL *url = [NSURL URLWithString:self.URLString];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    UIImage *ima = [UIImage imageWithData:data];
+    //断言
+    NSAssert(self.finishBlock !=nil, @"下载回调的值不能是nil");
+    //把图片传到控制器
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        self.finishBlock(ima);
+    }];
+}
+
 
 @end
