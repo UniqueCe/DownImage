@@ -13,6 +13,7 @@
 		E207C32C1D689DEB000AB10E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E207C32A1D689DEB000AB10E /* Main.storyboard */; };
 		E207C32E1D689DEB000AB10E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E207C32D1D689DEB000AB10E /* Assets.xcassets */; };
 		E207C3311D689DEB000AB10E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E207C32F1D689DEB000AB10E /* LaunchScreen.storyboard */; };
+		E207C33B1D689EF6000AB10E /* DownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E207C33A1D689EF6000AB10E /* DownloadOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		E207C32D1D689DEB000AB10E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E207C3301D689DEB000AB10E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E207C3321D689DEB000AB10E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E207C3391D689EF6000AB10E /* DownloadOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadOperation.h; sourceTree = "<group>"; };
+		E207C33A1D689EF6000AB10E /* DownloadOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,7 @@
 		E207C3201D689DEB000AB10E /* 仿SDWebImage */ = {
 			isa = PBXGroup;
 			children = (
+				E207C3381D689EBB000AB10E /* CopySDWebImage */,
 				E207C3241D689DEB000AB10E /* AppDelegate.h */,
 				E207C3251D689DEB000AB10E /* AppDelegate.m */,
 				E207C3271D689DEB000AB10E /* ViewController.h */,
@@ -77,6 +81,15 @@
 				E207C3221D689DEB000AB10E /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E207C3381D689EBB000AB10E /* CopySDWebImage */ = {
+			isa = PBXGroup;
+			children = (
+				E207C3391D689EF6000AB10E /* DownloadOperation.h */,
+				E207C33A1D689EF6000AB10E /* DownloadOperation.m */,
+			);
+			path = CopySDWebImage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +165,7 @@
 				E207C3291D689DEB000AB10E /* ViewController.m in Sources */,
 				E207C3261D689DEB000AB10E /* AppDelegate.m in Sources */,
 				E207C3231D689DEB000AB10E /* main.m in Sources */,
+				E207C33B1D689EF6000AB10E /* DownloadOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
