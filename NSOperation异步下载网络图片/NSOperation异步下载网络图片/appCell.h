@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  appCell.h
 //  NSOperation异步下载网络图片
 //
 //  Created by 刘培策 on 16/8/21.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UITableViewController
+@interface appCell : UITableViewCell
 
+@property(nonatomic,strong)IBOutlet UIImageView *imageV;
 
 @end
-
