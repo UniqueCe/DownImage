@@ -25,10 +25,3 @@
 
 
 @end
-/*
- {
- "name" : "植物大战僵尸",
- "download" : "10311万",
- "icon" : "http:\/\/p16.qhimg.com\/dr\/48_48_\/t0125e8d438ae9d2fbb.png"
- },
- */

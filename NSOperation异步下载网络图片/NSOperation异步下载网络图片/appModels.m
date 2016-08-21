@@ -10,4 +10,17 @@
 
 @implementation appModels
 
++ (instancetype)appWithDictionary:(NSDictionary *)dict
+{
+    appModels *model = [[self alloc]init];
+    
+    [model setValuesForKeysWithDictionary:dict];
+    
+    return model;
+}
+
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key {
+    
+}
+
 @end

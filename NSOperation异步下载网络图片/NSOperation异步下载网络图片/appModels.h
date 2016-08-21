@@ -10,4 +10,20 @@
 
 @interface appModels : NSObject
 
+@property(nonatomic,copy) NSString *name;
+
+@property(nonatomic,copy) NSString *doenload;
+
+@property(nonatomic,copy) NSString *icon;
+
++ (instancetype)appWithDictionary:(NSDictionary *)dict;
+
+/*
+ {
+ "name" : "植物大战僵尸",
+ "download" : "10311万",
+ "icon" : "http:\/\/p16.qhimg.com\/dr\/48_48_\/t0125e8d438ae9d2fbb.png"
+ },
+ */
+
 @end
