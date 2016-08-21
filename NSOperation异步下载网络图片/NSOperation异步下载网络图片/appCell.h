@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "appModels.h"
 
 @interface appCell : UITableViewCell
 
-@property(nonatomic,strong)IBOutlet UIImageView *imageV;
+@property(nonatomic,strong) appModels *modelCell;
+
+@property(nonatomic,weak)IBOutlet UIImageView *imageV;
 
 @end

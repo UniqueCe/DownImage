@@ -9,8 +9,9 @@
 #import "ViewController.h"
 #import "AFNetworking.h"
 #import "appModels.h"
+#import "appCell.h"
 //https://raw.githubusercontent.com/UniqueCe/DownImage/master/apps.json
-@interface ViewController ()
+@interface ViewController ()<UITableViewDataSource>
 
 @end
 
@@ -52,10 +53,23 @@
     }];
    
 }
-
-
-
-
+#pragma mark - 设置TableViewDataSource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return _arrayList.count;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    appCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    
+    
+    
+    return cell;
+}
 
 
 
