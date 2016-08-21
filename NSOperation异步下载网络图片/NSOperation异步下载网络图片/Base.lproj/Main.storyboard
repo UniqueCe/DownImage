@@ -14,7 +14,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="O1f-91-cbn">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="O1f-91-cbn" customClass="appCell">
                                 <rect key="frame" x="0.0" y="28" width="600" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O1f-91-cbn" id="LY8-ZG-fuR">
@@ -50,6 +50,11 @@
                                         <constraint firstItem="Z9c-9J-Wcw" firstAttribute="leading" secondItem="LY8-ZG-fuR" secondAttribute="leading" constant="20" id="zWr-rV-6ZP"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="downloadLabel" destination="7ND-iY-uQC" id="Dh0-3F-1IX"/>
+                                    <outlet property="imageV" destination="Z9c-9J-Wcw" id="8tz-X4-hHt"/>
+                                    <outlet property="nameLabel" destination="tiR-Ax-Sg9" id="Hyu-Pz-Ck8"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
