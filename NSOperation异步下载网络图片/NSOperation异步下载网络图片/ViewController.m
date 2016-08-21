@@ -20,12 +20,16 @@
     NSArray *_arrayList;//存储json数据
     
     NSOperationQueue *_queue;
+    
+    NSMutableDictionary *_dictImage;//图片缓存池
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     _queue = [[NSOperationQueue alloc]init];
+    
+    _dictImage = [[NSMutableDictionary alloc]init];
     
     [self downLoadData];
 }
@@ -73,9 +77,24 @@
     appModels *modelImage = _arrayList[indexPath.row];
     
     cell.modelCell = modelImage;
+#pragma mark - 判断本地图片缓存池是否有图片
+    UIImage *image = [_dictImage objectForKey:modelImage.icon];
+    if (image != nil)
+    {  NSLog(@"缓存池--%@",modelImage.name);
+        cell.imageV.image = image;
+        
+        return cell;
+    }
+    
+    
+    //MARK:在下载图片之前，设置占位符
+    cell.imageV.image = [UIImage imageNamed:@"789"];
     
 #pragma mark - NSOperationQueue下载网络图片
     NSBlockOperation *blockOper = [NSBlockOperation blockOperationWithBlock:^{
+        
+        //模拟网络延迟
+        [NSThread sleepForTimeInterval:5.0];
         
         NSURL *url = [NSURL URLWithString:modelImage.icon];
         
@@ -85,6 +104,10 @@
         
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             cell.imageV.image = ima;
+            //MARK:把图片存储到缓存池
+            if (ima != nil) {
+                [_dictImage setObject:ima forKey:modelImage.icon];
+            }
         }];
     }];
     //添加到队列
