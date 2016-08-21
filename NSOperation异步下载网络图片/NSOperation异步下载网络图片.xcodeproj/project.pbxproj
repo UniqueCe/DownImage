@@ -21,6 +21,7 @@
 		E2C7C7A51D699D7600E81F4F /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C7C79F1D699D7600E81F4F /* AFURLSessionManager.m */; };
 		E2C7C7A81D699DC200E81F4F /* appCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C7C7A71D699DC200E81F4F /* appCell.m */; };
 		E2C7C7AB1D699DE600E81F4F /* appModels.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C7C7AA1D699DE600E81F4F /* appModels.m */; };
+		E2C7C7B11D69E08200E81F4F /* NSString+path.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C7C7B01D69E08200E81F4F /* NSString+path.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,8 @@
 		E2C7C7A71D699DC200E81F4F /* appCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = appCell.m; sourceTree = "<group>"; };
 		E2C7C7A91D699DE600E81F4F /* appModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = appModels.h; sourceTree = "<group>"; };
 		E2C7C7AA1D699DE600E81F4F /* appModels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = appModels.m; sourceTree = "<group>"; };
+		E2C7C7AF1D69E08200E81F4F /* NSString+path.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+path.h"; sourceTree = "<group>"; };
+		E2C7C7B01D69E08200E81F4F /* NSString+path.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+path.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +89,8 @@
 				E2C7C7921D699D7600E81F4F /* AFNetworking */,
 				E2C7C77E1D699C7200E81F4F /* AppDelegate.h */,
 				E2C7C77F1D699C7200E81F4F /* AppDelegate.m */,
+				E2C7C7AF1D69E08200E81F4F /* NSString+path.h */,
+				E2C7C7B01D69E08200E81F4F /* NSString+path.m */,
 				E2C7C7811D699C7200E81F4F /* ViewController.h */,
 				E2C7C7821D699C7200E81F4F /* ViewController.m */,
 				E2C7C7A61D699DC200E81F4F /* appCell.h */,
@@ -207,6 +212,7 @@
 				E2C7C7AB1D699DE600E81F4F /* appModels.m in Sources */,
 				E2C7C77D1D699C7200E81F4F /* main.m in Sources */,
 				E2C7C7A21D699D7600E81F4F /* AFSecurityPolicy.m in Sources */,
+				E2C7C7B11D69E08200E81F4F /* NSString+path.m in Sources */,
 				E2C7C7A31D699D7600E81F4F /* AFURLRequestSerialization.m in Sources */,
 				E2C7C7A41D699D7600E81F4F /* AFURLResponseSerialization.m in Sources */,
 				E2C7C7A01D699D7600E81F4F /* AFHTTPSessionManager.m in Sources */,

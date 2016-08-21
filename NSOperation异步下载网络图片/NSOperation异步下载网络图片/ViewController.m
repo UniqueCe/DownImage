@@ -117,9 +117,10 @@
             }
             //图片下载完后，删除操作缓存池
             [_cache removeObjectForKey:modelImage.icon];
-        
         }];
     }];
+    // 把下载操作添加到操作缓存池
+    [_cache setObject:blockOper forKey:modelImage.icon];
     //添加到队列
     [_queue addOperation:blockOper];
     
