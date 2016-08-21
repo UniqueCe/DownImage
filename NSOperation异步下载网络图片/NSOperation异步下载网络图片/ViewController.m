@@ -18,10 +18,14 @@
 @implementation ViewController
 {
     NSArray *_arrayList;//存储json数据
+    
+    NSOperationQueue *_queue;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _queue = [[NSOperationQueue alloc]init];
     
     [self downLoadData];
 }
@@ -66,7 +70,25 @@
 {
     appCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
-    cell.modelCell = _arrayList[indexPath.row];
+    appModels *modelImage = _arrayList[indexPath.row];
+    
+    cell.modelCell = modelImage;
+    
+#pragma mark - NSOperationQueue下载网络图片
+    NSBlockOperation *blockOper = [NSBlockOperation blockOperationWithBlock:^{
+        
+        NSURL *url = [NSURL URLWithString:modelImage.icon];
+        
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        
+        UIImage *ima = [UIImage imageWithData:data];
+        
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            cell.imageV.image = ima;
+        }];
+    }];
+    //添加到队列
+    [_queue addOperation:blockOper];
     
     return cell;
 }
