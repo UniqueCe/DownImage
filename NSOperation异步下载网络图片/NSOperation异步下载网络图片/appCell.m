@@ -16,9 +16,16 @@
 
 @end
 
-
 @implementation appCell
-
+#pragma mark - 重写set赋值
+- (void)setModelCell:(appModels *)modelCell
+{
+    _modelCell = modelCell;
+    
+    self.nameLabel.text = modelCell.name;
+    
+    self.downloadLabel.text = modelCell.download;
+}
 
 
 

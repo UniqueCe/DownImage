@@ -66,17 +66,18 @@
 {
     appCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
-    
+    cell.modelCell = _arrayList[indexPath.row];
     
     return cell;
 }
 
-
-
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 
+}
+#pragma mark - 隐藏状态栏
+- (BOOL)prefersStatusBarHidden {
+    return YES;
 }
 
 @end

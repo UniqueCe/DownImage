@@ -12,7 +12,7 @@
 
 @property(nonatomic,copy) NSString *name;
 
-@property(nonatomic,copy) NSString *doenload;
+@property(nonatomic,copy) NSString *download;
 
 @property(nonatomic,copy) NSString *icon;
 
