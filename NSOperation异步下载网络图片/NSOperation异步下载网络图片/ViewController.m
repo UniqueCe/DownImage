@@ -10,6 +10,7 @@
 #import "AFNetworking.h"
 #import "appModels.h"
 #import "appCell.h"
+#import "NSString+path.h"
 //https://raw.githubusercontent.com/UniqueCe/DownImage/master/apps.json
 @interface ViewController ()<UITableViewDataSource>
 
@@ -81,6 +82,7 @@
     cell.modelCell = modelImage;
 #pragma mark - 判断本地图片缓存池是否有图片
     UIImage *image = [_dictImage objectForKey:modelImage.icon];
+    
     if (image != nil)
     {  NSLog(@"缓存池--%@",modelImage.name);
         cell.imageV.image = image;
@@ -89,6 +91,17 @@
     }
     //MARK:在下载图片之前，设置占位符
     cell.imageV.image = [UIImage imageNamed:@"789"];
+#pragma mark - 在建立下载操作之前,内存缓存判断之后,判断沙盒缓存
+    UIImage *imageCache = [UIImage imageWithContentsOfFile:[modelImage.icon appendCachesPath]];
+    
+    if (imageCache) {
+        //保存到图片缓存池
+        [_dictImage setObject:imageCache forKey:modelImage.icon];
+   
+        cell.imageV.image = imageCache;
+        
+        return cell;
+    }
 #pragma mark - 判断下载操作是否存在
     if ([_cache objectForKey:modelImage.icon] != nil) {
         NSLog(@"正在下载--%@",modelImage.name);
@@ -106,7 +119,11 @@
         NSData *data = [NSData dataWithContentsOfURL:url];
         
         UIImage *ima = [UIImage imageWithData:data];
-        
+        //MARK:实现沙盒缓存
+        if (ima) {
+            [data writeToFile:[modelImage.icon appendCachesPath] atomically:YES];
+        }
+        //主线程更新UI
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             //cell.imageV.image = ima;
             //MARK:把图片存储到缓存池
@@ -126,7 +143,7 @@
     
     return cell;
 }
-
+#pragma mark - 处理内存警告
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
