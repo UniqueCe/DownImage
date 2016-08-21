@@ -22,6 +22,8 @@
     NSOperationQueue *_queue;
     
     NSMutableDictionary *_dictImage;//图片缓存池
+    
+    NSMutableDictionary *_cache;//操作缓存池
 }
 
 - (void)viewDidLoad {
@@ -85,10 +87,13 @@
         
         return cell;
     }
-    
-    
     //MARK:在下载图片之前，设置占位符
     cell.imageV.image = [UIImage imageNamed:@"789"];
+#pragma mark - 判断下载操作是否存在
+    if ([_cache objectForKey:modelImage.icon] != nil) {
+        NSLog(@"正在下载--%@",modelImage.name);
+        return cell;
+    }
     
 #pragma mark - NSOperationQueue下载网络图片
     NSBlockOperation *blockOper = [NSBlockOperation blockOperationWithBlock:^{
@@ -103,11 +108,16 @@
         UIImage *ima = [UIImage imageWithData:data];
         
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            cell.imageV.image = ima;
+            //cell.imageV.image = ima;
             //MARK:把图片存储到缓存池
             if (ima != nil) {
                 [_dictImage setObject:ima forKey:modelImage.icon];
+                
+                [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
             }
+            //图片下载完后，删除操作缓存池
+            [_cache removeObjectForKey:modelImage.icon];
+        
         }];
     }];
     //添加到队列
@@ -116,9 +126,15 @@
     return cell;
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
-
+    
+    [_dictImage removeAllObjects];
+    
+    [_cache removeAllObjects];
+    
+    [_queue cancelAllOperations];
 }
 #pragma mark - 隐藏状态栏
 - (BOOL)prefersStatusBarHidden {
