@@ -18,7 +18,7 @@
     
     return model;
 }
-
+#pragma mark - 防止Model里的数据没有声明而崩溃
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key {
     
 }
