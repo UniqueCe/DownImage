@@ -61,6 +61,11 @@
   
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
+        UIAlertController * alert = [UIAlertController  alertControllerWithTitle:@"提示" message:@"网络异常，请重新加载" preferredStyle:UIAlertControllerStyleAlert];
+
+        [alert addAction:[UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleCancel handler:nil]];
+        
+        [self presentViewController:alert animated:YES completion:nil];
     }];
    
 }
@@ -112,7 +117,7 @@
     NSBlockOperation *blockOper = [NSBlockOperation blockOperationWithBlock:^{
         
         //模拟网络延迟
-        [NSThread sleepForTimeInterval:5.0];
+        [NSThread sleepForTimeInterval:0.5];
         
         NSURL *url = [NSURL URLWithString:modelImage.icon];
         
